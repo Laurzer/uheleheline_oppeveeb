@@ -1,0 +1,65 @@
+/* Navigation Bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #0071e3; /* Apple blue */
+}
+
+/* Add spacing below nav so header doesn’t overlap */
+header {
+  padding-top: 8rem;
+}
+
+/* About Me Section */
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #e5e5e5;
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  .about-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+}
