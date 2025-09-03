@@ -1,4 +1,21 @@
-/* Navigation Bar */
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Fonts & Body ===== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* ===== Navigation ===== */
 nav {
   position: fixed;
   top: 0;
@@ -35,12 +52,56 @@ nav a:hover {
   color: #0071e3; /* Apple blue */
 }
 
-/* Add spacing below nav so header doesn’t overlap */
+/* ===== Header ===== */
 header {
-  padding-top: 8rem;
+  text-align: center;
+  padding: 8rem 1rem 3rem 1rem; /* extra top padding for fixed nav */
 }
 
-/* About Me Section */
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  color: #555;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* ===== Sections ===== */
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+section h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+section ul {
+  list-style: none;
+}
+
+section li {
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+section li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #aaa;
+}
+
+/* ===== About Me Section ===== */
 .about-wrapper {
   display: flex;
   align-items: center;
@@ -56,10 +117,126 @@ header {
   border: 2px solid #e5e5e5;
 }
 
-/* Responsive tweaks */
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+  padding: 2rem 1rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 700px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  section h2 {
+    font-size: 1.25rem;
+  }
   .about-wrapper {
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* HERO */
+.hero {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* LINK-IMAGE GRID */
+#links .link-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.img-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.img-link:hover {
+  transform: translateY(-2px);
+  border-color: #d5d5d5;
+}
+.img-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.img-link .caption {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* responsive */
+@media (max-width: 800px) {
+  #links .link-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+#colors.with-bg {
+  position: relative;
+  background: url("assets/images/colors-bg.png") center/cover no-repeat;
+  color: #111;
+  overflow: hidden;
+
+  /* Full width */
+  max-width: none;
+  margin: 0;
+  width: 100%;
+  padding: 6rem 0; /* only top/bottom padding now */
+}
+
+#colors.with-bg .content {
+  max-width: 900px;    /* keeps text readable */
+  margin: 0 auto;      /* centers the text block in the middle horizontally */
+  padding: 0 2rem;     /* adds space so text never hugs the edge */
+  position: relative;
+  z-index: 1;
+  text-align: left;    /* force left alignment */
+}
+
+
+/* Stronger left fade */
+#colors.with-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.95) 0%,   /* almost solid white on the far left */
+    rgba(255, 255, 255, 0.7) 25%,   /* lighter overlay up to 1/4 of width */
+    rgba(255, 255, 255, 0.3) 50%,   /* soft fade in the middle */
+    rgba(255, 255, 255, 0) 100%     /* fully clear on the right side */
+  );
+  z-index: 0;
+}
+
+/* Text always above gradient */
+#colors.with-bg h2,
+#colors.with-bg ul {
+  position: relative;
+  z-index: 1;
+  color: #111;
 }

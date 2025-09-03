@@ -22,18 +22,26 @@
   <header>
     <h1>Web Design Essentials</h1>
     <p>Everything I need to remember when designing websites</p>
+
+    <!-- HERO -->
+    <picture class="hero">
+        <img src="assets/images/totoro.jpg" alt="Minimalistlik puhas töölaua vaade" loading="eager" decoding="async" width="1600" height="900">
+    </picture>
   </header>
 
   <!-- Sections -->
   <main>
-    <section id="colors">
-      <h2>Colors & Typography</h2>
-      <ul>
-        <li>Use high contrast for readability</li>
-        <li>Pick max 2–3 fonts</li>
-        <li>Font sizes: 16px base, 2x for headings</li>
-      </ul>
-    </section>
+    <section id="colors" class="with-bg">
+        <div class="content">
+          <h2>Colors & Typography</h2>
+          <ul>
+            <li>Use high contrast for readability</li>
+            <li>Pick max 2–3 fonts</li>
+            <li>Font sizes: 16px base, 2x for headings</li>
+          </ul>
+        </div>
+      </section>
+      
 
     <section id="layout">
       <h2>Layout Principles</h2>
@@ -65,6 +73,24 @@
     </section>
   </main>
 
+    <section id="links">
+        <h2>Picture Links</h2>
+  
+        <div class="link-grid">
+        <!-- VÄLINE LINK -->
+        <a class="img-link" href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer" title="MDN Web Docs">
+            <img src="assets/images/mdn-thumb.jpg" alt="MDN Web Docs pisipilt" width="600" height="400">
+            <span class="caption">MDN Web Docs</span>
+        </a>
+  
+        <!-- SISENEV LINK OMA LEHELE (sektsioon) -->
+        <a class="img-link" href="#about" title="Hüppa About sektsiooni">
+            <img src="assets/images/about-thumb.jpg" alt="About sektsiooni pisipilt" width="600" height="400">
+            <span class="caption">Minu “About” sektsioon</span>
+        </a>
+        </div>
+    </section>
+  
   <!-- Footer -->
   <footer>
     <p>Made with ❤️ by Laura</p>
