@@ -342,3 +342,8 @@ footer {
   margin-top: 1rem;
 }
 
+/* Add spacing to all items inside the gallery */
+.gallery-grid .img-link,
+.gallery-grid .gallery-item {
+  margin-bottom: 1rem; /* adjust as needed */
+}
