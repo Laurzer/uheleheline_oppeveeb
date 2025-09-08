@@ -6,10 +6,27 @@
   <title>Web Design Essentials</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
+
+  <!-- Skip Link -->
+  <a class="skip-link" href="#main-content">Liigu sisu juurde</a>
+
   <!-- Navigation -->
   <nav>
-    <div class="logo">WDE</div>
+    <a href="#top" class="logo" aria-label="Back to top">
+      <!-- Inline cat SVG icon -->
+      <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" 
+           width="40px" height="40px" viewBox="0 0 121.6 121.6" xml:space="preserve">
+        <g>
+          <path d="M30,108.785c9,4.601,19.1,7,29.2,7.2c0.5,0,1.1,0,1.6,0c10.2,0,20.3-2.2,29.5-6.6c8.399-4,16-10,21.601-17.5
+                  c6.399-8.601,9.699-18.9,9.699-29.601c0-6.8,0-13.5,0-20.3c0-7.4,0-14.7,0-22.1c0-2.6,0-5.2,0-7.7c0-4.7-4.699-7.8-9-6.1l-22.8,9.5
+                  c-1.5,0.6-3.2,0.7-4.7,0.1c-7.4-2.9-15.6-4.4-24.3-4.4s-16.9,1.6-24.3,4.4c-1.5,0.6-3.2,0.5-4.7-0.1L9,6.385c-4.3-1.8-9,1.4-9,6.1
+                  c0,3.5,0,7.1,0,10.6c0,7.3,0,14.6,0,22c0,6.2,0,12.3,0,18.5c0,9.9,3.2,19.5,8.9,27.5C14.3,98.585,21.7,104.585,30,108.785z
+                  M83,62.485c5.5,0,10,4.5,10,10s-4.5,10-10,10s-10-4.5-10-10C73,66.886,77.5,62.485,83,62.485z M38.6,62.485c5.5,0,10,4.5,10,10
+                  s-4.5,10-10,10s-10-4.5-10-10C28.6,66.886,33.1,62.485,38.6,62.485z"/>
+        </g>
+      </svg>
+    </a>
     <ul>
       <li><a href="#colors">Colors</a></li>
       <li><a href="#layout">Layout</a></li>
@@ -30,7 +47,7 @@
   </header>
 
   <!-- Sections -->
-  <main>
+  <main id="main-content">
     <section id="colors" class="with-bg">
         <div class="content">
           <h2>Colors & Typography</h2>
@@ -40,9 +57,8 @@
             <li>Font sizes: 16px base, 2x for headings</li>
           </ul>
         </div>
-      </section>
+    </section>
       
-
     <section id="layout">
       <h2>Layout Principles</h2>
       <ul>
@@ -65,36 +81,47 @@
     <section id="about">
       <h2>About Me</h2>
       <div class="about-wrapper">
-        <img src="assets/images/IMG_4929.JPG" alt="Picture of me" class="profile-pic">
+        <img src="assets/images/IMG_4929.JPG" alt="Picture of me" class="profile-pic" loading="lazy">
         <p>Hi, I’m Laura — a UX/UI design student passionate about creating
         clean, intuitive and user-focused designs. This page is my personal
         web design cheat sheet, but also a glimpse into my design journey.</p>
+        <p>A visual representation of <a href="#mdn-thumb">Me</a>.</p>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="content">
+        <div class="gallery-grid">
+          <!-- External Link -->
+          <a class="img-link" href="https://i.pinimg.com/736x/fb/c5/6e/fbc56e708c1aebf20aaa63c1b719227c.jpg" target="_blank" rel="noopener noreferrer" title="MDN Web Docs">
+              <img src="assets/images/cats.jpg" alt="MDN Web Docs pisipilt" width="600" height="400" loading="lazy">
+              <span class="caption">Evil cat</span>
+          </a>
+
+          <!-- Internal Link -->
+          <a class="img-link" href="#about">
+              <img id="mdn-thumb" src="assets/images/Glug Glug Red Bull.jpeg" alt="Meow" width="600" height="400" loading="lazy">
+              <span class="caption">This is the representation of my being</span>
+          </a>
+        </div>
+
+        <!-- 🎥 Video under the pictures -->
+        <div class="gallery-item">
+          <video autoplay loop muted playsinline>
+            <source src="assets/images/lotus.mp4" type="video/mp4">
+            <source src="assets/videos/portfolio-demo.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </section>
   </main>
 
-    <section id="links">
-        <h2>Picture Links</h2>
-  
-        <div class="link-grid">
-        <!-- VÄLINE LINK -->
-        <a class="img-link" href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer" title="MDN Web Docs">
-            <img src="assets/images/mdn-thumb.jpg" alt="MDN Web Docs pisipilt" width="600" height="400">
-            <span class="caption">MDN Web Docs</span>
-        </a>
-  
-        <!-- SISENEV LINK OMA LEHELE (sektsioon) -->
-        <a class="img-link" href="#about" title="Hüppa About sektsiooni">
-            <img src="assets/images/about-thumb.jpg" alt="About sektsiooni pisipilt" width="600" height="400">
-            <span class="caption">Minu “About” sektsioon</span>
-        </a>
-        </div>
-    </section>
-  
   <!-- Footer -->
   <footer>
     <p>Made with ❤️ by Laura</p>
   </footer>
 </body>
 </html>
-

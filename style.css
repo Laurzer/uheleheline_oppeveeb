@@ -15,6 +15,24 @@ body {
   scroll-behavior: smooth;
 }
 
+/* ===== Skip Link ===== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #111;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #555;
+  outline-offset: 4px;
+}
+
 /* ===== Navigation ===== */
 nav {
   position: fixed;
@@ -30,9 +48,23 @@ nav {
   z-index: 1000;
 }
 
-nav .logo {
-  font-weight: 600;
-  font-size: 1.2rem;
+.logo {
+  display: flex;
+  align-items: center;
+  color: #111;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo svg {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.logo:hover svg {
+  transform: scale(1.1);
+  fill: #555;
 }
 
 nav ul {
@@ -48,8 +80,10 @@ nav a {
   transition: color 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
   color: #0071e3; /* Apple blue */
+  outline: none;
 }
 
 /* ===== Header ===== */
@@ -71,7 +105,7 @@ header p {
 }
 
 /* ===== Sections ===== */
-section {
+main section {
   max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1rem;
@@ -117,6 +151,128 @@ section li::before {
   border: 2px solid #e5e5e5;
 }
 
+/* ===== Hero Image ===== */
+.hero {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== Link-Image Grid ===== */
+.img-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.img-link:hover,
+.img-link:focus-visible {
+  transform: translateY(-2px);
+  border-color: #d5d5d5;
+}
+
+.img-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.img-link .caption {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ===== Colors Section Background & Fade ===== */
+#colors.with-bg {
+  position: relative;
+  background: url("assets/images/colors-bg.png") center/cover no-repeat;
+  color: #111;
+  overflow: hidden;
+
+  /* Full width */
+  max-width: none;
+  margin: 0;
+  width: 100%;
+  padding: 6rem 0;
+}
+
+#colors.with-bg .content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+#colors.with-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.7) 25%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 0;
+}
+
+#colors.with-bg h2,
+#colors.with-bg ul {
+  position: relative;
+  z-index: 1;
+  color: #111;
+}
+
+/* ===== Scroll margin for anchors ===== */
+#mdn-thumb {
+  scroll-margin-top: 80px;
+}
+
+/* ===== Gallery Masonry ===== */
+.gallery-grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  object-fit: cover;
+}
+
+.gallery-item video {
+  max-height: 400px;
+  margin-top: 1rem;
+}
+
 /* ===== Footer ===== */
 footer {
   text-align: center;
@@ -127,6 +283,18 @@ footer {
 }
 
 /* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 800px) {
+  #links .link-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 700px) {
   header h1 {
     font-size: 2rem;
@@ -140,103 +308,37 @@ footer {
   }
 }
 
-/* HERO */
-.hero {
-  display: block;
-  width: 100%;
-  max-width: 1100px;
-  margin: 2rem auto 0;
-  border-radius: 16px;
-  border: 1px solid #e5e5e5;
-  overflow: hidden;
-}
-.hero img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* LINK-IMAGE GRID */
-#links .link-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin-top: 1rem;
-}
-.img-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-.img-link:hover {
-  transform: translateY(-2px);
-  border-color: #d5d5d5;
-}
-.img-link img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.img-link .caption {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: #555;
-  font-size: 0.95rem;
-}
-
-/* responsive */
-@media (max-width: 800px) {
-  #links .link-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 600px) {
+  .gallery-grid {
+    column-count: 1;
   }
 }
 
-#colors.with-bg {
-  position: relative;
-  background: url("assets/images/colors-bg.png") center/cover no-repeat;
-  color: #111;
-  overflow: hidden;
+/* ===== Gallery Masonry ===== */
+.gallery-grid {
+  max-width: 1100px; /* keeps it centered */
+  margin: 0 auto;
+  column-count: 3;
+  column-gap: 1rem;
+}
 
-  /* Full width */
-  max-width: none;
-  margin: 0;
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.gallery-item img,
+.gallery-item video {
   width: 100%;
-  padding: 6rem 0; /* only top/bottom padding now */
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  object-fit: cover;
 }
 
-#colors.with-bg .content {
-  max-width: 900px;    /* keeps text readable */
-  margin: 0 auto;      /* centers the text block in the middle horizontally */
-  padding: 0 2rem;     /* adds space so text never hugs the edge */
-  position: relative;
-  z-index: 1;
-  text-align: left;    /* force left alignment */
+.gallery-item video {
+  max-height: 400px;
+  margin-top: 1rem;
 }
 
-
-/* Stronger left fade */
-#colors.with-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.95) 0%,   /* almost solid white on the far left */
-    rgba(255, 255, 255, 0.7) 25%,   /* lighter overlay up to 1/4 of width */
-    rgba(255, 255, 255, 0.3) 50%,   /* soft fade in the middle */
-    rgba(255, 255, 255, 0) 100%     /* fully clear on the right side */
-  );
-  z-index: 0;
-}
-
-/* Text always above gradient */
-#colors.with-bg h2,
-#colors.with-bg ul {
-  position: relative;
-  z-index: 1;
-  color: #111;
-}
