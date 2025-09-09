@@ -89,7 +89,7 @@ nav a:focus-visible {
 /* ===== Header ===== */
 header {
   text-align: center;
-  padding: 8rem 1rem 3rem 1rem; /* extra top padding for fixed nav */
+  padding: 8rem 1rem 1rem 1rem; /* extra top padding for fixed nav */
 }
 
 header h1 {
@@ -156,7 +156,10 @@ section li::before {
   display: block;
   width: 100%;
   max-width: 1100px;
-  margin: 2rem auto 0;
+  margin-top: 2rem;
+  margin-bottom: 0%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 16px;
   border: 1px solid #e5e5e5;
   overflow: hidden;
@@ -166,6 +169,42 @@ section li::before {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Clouds overlay floats near top */
+.cloud-overlay {
+  position: absolute;
+  top: 0;        /* adjust this value to move clouds lower/higher */
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 3; /* above image, below any header text if needed */
+}
+
+.grass-overlay {
+  position: absolute;
+  bottom: 0;  
+  left: 0;
+  width: 100%; /*stretch to full width*/
+  height: auto;
+  pointer-events: none;
+  z-index: 2; /* above clouds but below text */
+}
+
+.hero-wrapper {
+  max-width: 1100px;   /* keeps hero nice and centered */
+  margin: 2rem auto 0;
+  border-radius: 16px;
+  border: 0px solid #e5e5e5;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;     /* so flowers layer above */
 }
 
 /* ===== Link-Image Grid ===== */
@@ -201,7 +240,7 @@ section li::before {
 /* ===== Colors Section Background & Fade ===== */
 #colors.with-bg {
   position: relative;
-  background: url("assets/images/colors-bg.png") center/cover no-repeat;
+  background: url("assets/images/") center/cover no-repeat;
   color: #111;
   overflow: hidden;
 
@@ -347,3 +386,33 @@ footer {
 .gallery-grid .gallery-item {
   margin-bottom: 1rem; /* adjust as needed */
 }
+
+.gallery-item:hover,
+.gallery-item:focus-visible {
+  transform: translateY(-2px);
+  border-color: #d5d5d5;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-item .caption {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;        /* optional, centers text under image */
+  background-color: #fff;    /* optional, adds a little box */
+  border-top: 1px solid #e5e5e5; /* optional, separates caption from image */
+}
+.gallery-item .caption {
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+
+

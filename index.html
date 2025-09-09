@@ -36,14 +36,20 @@
   </nav>
 
   <!-- Header -->
-  <header>
+  <header class="hero-section">
     <h1>Web Design Essentials</h1>
     <p>Everything I need to remember when designing websites</p>
-
-    <!-- HERO -->
-    <picture class="hero">
+  
+    <div class="hero-wrapper">
+      <picture class="hero">
         <img src="assets/images/totoro.jpg" alt="Minimalistlik puhas töölaua vaade" loading="eager" decoding="async" width="1600" height="900">
-    </picture>
+      </picture>
+    </div>
+     <!-- Cloud overlay -->
+     <img src="assets/images/clouds.png" alt="Clouds overlay" class="cloud-overlay">
+
+    <!-- Grass overlay anchored to header bottom -->
+    <img src="assets/images/grass-vector.png" alt="" class="grass-overlay">
   </header>
 
   <!-- Sections -->
@@ -109,10 +115,12 @@
           <!-- New images -->
           <div class="gallery-item">
               <img src="assets/images/ghibliscenery.jpeg" alt="Description of image 1" loading="lazy">
+              <span class="caption">Studio Ghibli scenery</span>
           </div>
 
           <div class="gallery-item">
               <img src="assets/images/ghiblicollage.jpeg" alt="Description of image 2" loading="lazy"> 
+              <span class="caption">Studio Ghibli collage</span>
           </div>
         </div>
 
@@ -120,7 +128,7 @@
         <div class="gallery-item">
           <video autoplay loop muted playsinline>
             <source src="assets/images/lotus.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+            <span class="caption">Lotus flower blooming</span>
           </video>
         </div>
       </div>
